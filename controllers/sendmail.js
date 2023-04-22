@@ -18,7 +18,7 @@ const SendMail = async (req, res) => {
         from: process.env.EMAIL,
         to: UserEmail,
         subject: "Thankyou - from Kunal Mehra",
-        html: ThankyouTemplate,
+        html: ThankyouTemplate(UserName),
     }
 
     await transporter.sendMail(mailOptions)
