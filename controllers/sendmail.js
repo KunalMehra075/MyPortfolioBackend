@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const { ThankyouTemplate } = require("./emailtemplate");
 require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
@@ -17,7 +18,7 @@ const SendMail = async (req, res) => {
         from: process.env.EMAIL,
         to: UserEmail,
         subject: "Thankyou - from Kunal Mehra",
-        html: `<b>Thanks for visiting my portfolio, I have recieved your Message, Will reply you soon</b>`,
+        html: ThankyouTemplate,
     }
 
     await transporter.sendMail(mailOptions)
@@ -32,8 +33,8 @@ async function NotifyMe(UserName, UserEmail, EmailBody) {
     let mailOptions = {
         from: UserEmail,
         to: process.env.EMAIL,
-        subject: `|Source:Portfolio|:You got an email from :${UserName}`,
-        html: `<b>${UserName + "" + EmailBody}</b>`,
+        subject: `|Source:Portfolio|:${UserName} sent you a message `,
+        html: `<b>${UserName + " : " + EmailBody}</b>`,
     }
     await transporter.sendMail(mailOptions)
 }
