@@ -1,6 +1,6 @@
 let ThankyouTemplate =
     `
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,19 +8,58 @@ let ThankyouTemplate =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Message Reply</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      * {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      .flex {
+        display: flex;
+        align-items: center;
+      }
+      img,
+      input,
+      select,
+      button {
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none !important;
+        padding: 3px;
+      }
+
+      #mainbox {
+        padding: 40px;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
       #mainbox > img {
-        width: 100%;
+        width: 200px;
       }
       #BigTextThanks {
         text-shadow: 2px 2px #ffd41f;
         font-size: 30px;
+      }
+
+      #linked {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: 2px solid rgb(133, 130, 130);
       }
     </style>
   </head>
   <body>
     <div id="mainbox">
       <img
-        src="https://media.tenor.com/4CCjmzihmqsAAAAj/thank-you-cat.gif"
+        src="https://i.pinimg.com/originals/8c/40/05/8c4005377742272315e792545a9c93df.gif"
         alt=""
       />
       <center>
@@ -30,14 +69,16 @@ let ThankyouTemplate =
         <p>I have recieved your message, Will reply to you very soon!</p>
       </center>
       <div id="sociallinks">
-        Follow me on -
-        <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"
-          >LinkedIN</a
+        Hey! Lets connect on LinkedIN
+        <a
+          id="linked"
+          href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"
+          ><h2>LinkedIN</h2></a
         >
       </div>
     </div>
   </body>
 </html>
 
-`
+    `
 module.exports = { ThankyouTemplate };
