@@ -1,12 +1,12 @@
 const express = require("express");
 const cors = require("cors");
-const { emailRouter } = require("./email.route");
+const { SendMail } = require("./controllers/sendmail");
 
 const app = express();
 
 app.use(cors("*"))
 app.use(express.json());
-app.use("/email", emailRouter);
+app.post("/sendmail", SendMail)
 
 app.get("/", (req, res) => {
     try {
