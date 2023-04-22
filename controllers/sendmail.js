@@ -9,9 +9,9 @@ const transporter = nodemailer.createTransport({
     }
 });
 const SendMail = async (req, res) => {
-    const { UserEmail, EmailBody } = req.body
+    const { UserName, UserEmail, EmailBody } = req.body
 
-    NotifyMe(UserEmail, EmailBody)
+    NotifyMe(UserName, UserEmail, EmailBody)
 
     let mailOptions = {
         from: process.env.EMAIL,
@@ -28,12 +28,12 @@ const SendMail = async (req, res) => {
         })
 
 }
-async function NotifyMe(UserEmail, EmailBody) {
+async function NotifyMe(UserName, UserEmail, EmailBody) {
     let mailOptions = {
         from: process.env.EMAIL,
         to: process.env.EMAIL,
-        subject: `<Portfolio Email> You got an email from :${UserEmail}`,
-        html: `<b>${EmailBody}</b>`,
+        subject: `Portfolio Email:> You got an email from :${UserName}`,
+        html: `<b>${UserEmail + "" + EmailBody}</b>`,
     }
     await transporter.sendMail(mailOptions)
 }
