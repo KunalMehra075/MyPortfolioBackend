@@ -30,10 +30,10 @@ const SendMail = async (req, res) => {
 }
 async function NotifyMe(UserName, UserEmail, EmailBody) {
     let mailOptions = {
-        from: process.env.EMAIL,
+        from: UserEmail,
         to: process.env.EMAIL,
-        subject: `Portfolio Email:> You got an email from :${UserName}`,
-        html: `<b>${UserEmail + "" + EmailBody}</b>`,
+        subject: `|Source:Portfolio|:You got an email from :${UserName}`,
+        html: `<b>${UserName + "" + EmailBody}</b>`,
     }
     await transporter.sendMail(mailOptions)
 }
