@@ -34,7 +34,7 @@ async function NotifyMe(UserName, UserEmail, EmailBody) {
         from: UserEmail,
         to: process.env.EMAIL,
         subject: `|Source:Portfolio|:${UserName} sent you a message `,
-        html: `<b>${UserName + " : " + EmailBody}</b>`,
+        html: `<b>${UserName + "\n" + UserEmail + "\n" + "Message: " + EmailBody}</b>`,
     }
     await transporter.sendMail(mailOptions)
 }
